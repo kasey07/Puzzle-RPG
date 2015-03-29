@@ -1,43 +1,54 @@
 package cs2114.puzzlerpg;
 
-import android.R;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import sofia.app.Screen;
 
+// -------------------------------------------------------------------------
+/**
+ *  Battle Screen of the Puzzle-RPG.
+ *
+ *
+ *  @author Kasey Johnson
+ *  @author
+ *  @version Mar 29, 2015
+ */
 public class BattleScreen
-    extends ActionBarActivity
+    extends Screen
 {
+    // ----------------------------------------------------------
+    /**
+     * Initialize the battle screen
+     */
+    public void initialize() {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_battle_screen);
     }
 
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param x
+     * @param y
+     */
+    public void onTouchMove(float x, float y) {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.battle_screen, menu);
-        return true;
     }
 
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param x
+     * @param y
+     */
+    public void ProcessTouch(float x, float y) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-      //  if (id == R.id.action_settings)
-       // {
-        //    return true;
-        //}
-        return super.onOptionsItemSelected(item);
     }
+
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     * @param puzzle
+     */
+    public void changeWasObserved(PuzzleGrid puzzle) {
+
+    }
+
 }
