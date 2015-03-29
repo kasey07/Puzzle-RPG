@@ -1,5 +1,6 @@
 package cs2114.puzzlerpg;
 
+import android.R;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +14,7 @@ public class BattleScreen
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_battle_screen);
+        //setContentView(R.layout.activity_battle_screen);
     }
 
 
@@ -21,7 +22,7 @@ public class BattleScreen
     public boolean onCreateOptionsMenu(Menu menu)
     {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.battle_screen, menu);
+        //getMenuInflater().inflate(R.menu.battle_screen, menu);
         return true;
     }
 
@@ -33,10 +34,10 @@ public class BattleScreen
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
+      //  if (id == R.id.action_settings)
+       // {
+        //    return true;
+        //}
         return super.onOptionsItemSelected(item);
     }
 }
