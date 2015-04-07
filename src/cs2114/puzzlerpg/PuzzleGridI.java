@@ -18,7 +18,7 @@ public interface PuzzleGridI
      * @param location
      *            the x,y coordinate of gem
      */
-    public Gem remove(Location location);
+    public GemCellType remove(Location location);
 
 
     // ----------------------------------------------------------
@@ -50,7 +50,7 @@ public interface PuzzleGridI
      *            location of gem
      * @return the gem type
      */
-    public Gem getType(Location location);
+    public GemCellType getType(Location location);
 
 
     // ----------------------------------------------------------
@@ -62,7 +62,7 @@ public interface PuzzleGridI
      * @param gemType
      *            the gem type to set the gem to
      */
-    public void setType(Location location, Gem gemType);
+    public void setType(Location location, GemCellType gemType);
 
 
     // ----------------------------------------------------------

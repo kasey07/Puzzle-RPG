@@ -13,12 +13,17 @@ import sofia.app.Screen;
  */
 public class BattleScreen
     extends Screen
+
+    private PuzzleGrid puzzle;
 {
     // ----------------------------------------------------------
     /**
      * Initialize the battle screen
      */
     public void initialize() {
+
+        puzzle = new PuzzleGrid(6);
+        puzzle.addObserver(this);
 
     }
 

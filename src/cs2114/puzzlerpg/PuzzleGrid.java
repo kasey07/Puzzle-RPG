@@ -12,9 +12,19 @@ import java.util.Observer;
  *  @author Kasey Johnson
  *  @version Mar 29, 2015
  */
-public class PuzzleGrid
-    implements Observer, PuzzleGridI
+public class PuzzleGrid extends sofia.util.Observable
+    implements PuzzleGridI
 {
+    private int size;
+    private GemCellType[][] gemLayout;
+
+    public PuzzleGrid(int size) {
+        this.size = size;
+        gemLayout = new GemCellType[size][size];
+
+        //Fill randomly with different types of cells
+
+    }
 
     public GemCellType remove(Location location)
     {
@@ -24,8 +34,7 @@ public class PuzzleGrid
 
     public int size()
     {
-        // TODO Auto-generated method stub
-        return 0;
+        return this.size;
     }
 
     public void switchGems(Location location1, Location location2)
@@ -46,10 +55,14 @@ public class PuzzleGrid
 
     }
 
+    /**
+     * Unlimited moves for regular mode
+     *
+     * @return always true for regular mode
+     */
     public boolean movesLeft()
     {
-        // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
     public void update(Observable observable, Object data)
