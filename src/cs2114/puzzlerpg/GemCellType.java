@@ -9,12 +9,6 @@ package cs2114.puzzlerpg;
  * @version Apr 7, 2015
  */
 public enum GemCellType
-
 {
-    FIRE,
-    WATER,
-    EARTH,
-    HEAL;
-
-
+    FIRE, WATER, EARTH, HEAL;
 }
