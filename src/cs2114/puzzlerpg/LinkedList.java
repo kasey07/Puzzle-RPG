@@ -12,23 +12,38 @@ import java.util.Iterator;
  */
 public class LinkedList<E>
 {
+    private int size;
+    private Node<E> head;
 
     /**
      * Construct a new empty list.
      */
     public LinkedList()
     {
-
+        head = null;
+        size = 0;
     }
 
     /**
      * Return the value at the given position.
-     * @index The given position.
+     * @param index The given position.
      * @return The value at that position.
      */
     public E get(int index)
     {
-        //TODO
+        if (0 <= (size() - index))
+        {
+            return null;
+        }
+        else
+        {
+            Node<E> currentNode = head;
+            for(int i = 0; i < size(); i++)
+            {
+                currentNode = head.getNext();
+            }
+            return currentNode.data();
+        }
     }
 
     /**
@@ -105,5 +120,51 @@ public class LinkedList<E>
     public Iterator<E> iterator()
     {
         //TODO
+    }
+
+    /**
+     * Linked list nodes.
+     */
+    private class Node<E>
+    {
+        private E value;
+        private Node next;
+
+        /**
+         * Create a new node linked to null.
+         */
+        public Node(E value)
+        {
+            this.value = value;
+            this.next = null;
+        }
+
+        /**
+         * Return the data in the node.
+         */
+        public E data()
+        {
+            return value;
+        }
+
+        /**
+         * Point the next node to the argument node.
+         * @param next The new next node.
+         */
+        public void setNext(Node<E> next)
+        {
+            this.next = next;
+        }
+
+        /**
+         * Return the next node or null if there
+         * are no other nodes.
+         * @return next node or null
+         */
+        public Node<E> getNext()
+        {
+            return next;
+        }
+
     }
 }
