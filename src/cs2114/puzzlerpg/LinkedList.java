@@ -12,7 +12,6 @@ import java.util.Iterator;
  */
 public class LinkedList<E>
 {
-    private int size;
     private Node<E> head;
 
     /**
@@ -21,7 +20,6 @@ public class LinkedList<E>
     public LinkedList()
     {
         head = null;
-        size = 0;
     }
 
     /**
@@ -31,19 +29,16 @@ public class LinkedList<E>
      */
     public E get(int index)
     {
-        if (0 <= (size() - index))
+        Node<E> currentNode = head;
+        for (int i = 0; i < index; i++)
         {
-            return null;
-        }
-        else
-        {
-            Node<E> currentNode = head;
-            for(int i = 0; i < size(); i++)
+            if (head == null)
             {
-                currentNode = head.getNext();
+                return null;
             }
-            return currentNode.data();
+            currentNode = currentNode.getNext();
         }
+        return currentNode.data();
     }
 
     /**
@@ -70,7 +65,14 @@ public class LinkedList<E>
      */
     public int size()
     {
-        //TODO
+        int accum = 0;
+        Node<E> currentNode = head;
+        while(currentNode != null)
+        {
+            currentNode = currentNode.getNext();
+            accum++;
+        }
+        return accum;
     }
 
     /**
@@ -86,8 +88,8 @@ public class LinkedList<E>
      * Makes this the new element at the given index. The current
      * element at that index and all elements after it are moved
      * to accommodate the new value.
-     * @newItem The new item.
-     * @index The index to insert the new value before.
+     * @param newItem The new item.
+     * @param index The index to insert the new value before.
      */
     public void insert(E newItem, int index)
     {
@@ -96,7 +98,7 @@ public class LinkedList<E>
 
     /**
      * Insert a new value to the front of the list.
-     * @newItem The new item.
+     * @param newItem The new item.
      */
     public void insert(E newItem)
     {
@@ -105,12 +107,33 @@ public class LinkedList<E>
 
     /**
      * Delete the item at the given position.
-     * @index The item to delete.
+     * @param index The item to delete.
      * @return The value that was deleted.
      */
     public E delete(int index)
     {
-        //TODO
+        if (index == 0)
+        {
+            Node<E> temp = head;
+            head = null;
+            return temp.data();
+        }
+        else
+        {
+            Node<E>lastNode = null;
+            Node<E>currentNode = head;
+            for (int i = 0; i < index; i++)
+            {
+                if (currentNode == null)
+                {
+                    //TODO List too short, blow up.
+                }
+                lastNode = currentNode;
+                currentNode = currentNode.getNext();
+            }
+            lastNode.setNext(currentNode.getNext());
+            return currentNode.data();
+        }
     }
 
     /**
@@ -140,14 +163,6 @@ public class LinkedList<E>
         }
 
         /**
-         * Return the data in the node.
-         */
-        public E data()
-        {
-            return value;
-        }
-
-        /**
          * Point the next node to the argument node.
          * @param next The new next node.
          */
@@ -164,6 +179,15 @@ public class LinkedList<E>
         public Node<E> getNext()
         {
             return next;
+        }
+
+        /**
+         * Get the datum in the node.
+         * @return The datum.
+         */
+        public E data()
+        {
+            return value;
         }
 
     }
