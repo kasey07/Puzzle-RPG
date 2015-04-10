@@ -151,7 +151,7 @@ public class LinkedList<E>
     private class Node<E>
     {
         private E value;
-        private Node next;
+        private Node<E> next;
 
         /**
          * Create a new node linked to null.
