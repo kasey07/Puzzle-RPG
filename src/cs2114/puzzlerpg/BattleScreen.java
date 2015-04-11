@@ -18,10 +18,11 @@ public class BattleScreen
     extends ShapeScreen
 {
 
-    private PuzzleGrid         puzzle;
-    private int                length;
-    private ShapeView          shapeView;
-    private RectangleShape[][] gem;
+    private PuzzleGrid   puzzle;
+    private int          length;
+    private ShapeView    shapeView;
+    private GemShape[][] gem;
+    private Location     firstClick;
 
 
     // ----------------------------------------------------------
@@ -30,12 +31,13 @@ public class BattleScreen
      */
     public void initialize()
     {
+        firstClick = null;
 
         puzzle = new PuzzleGrid(6);
         puzzle.addObserver(this);
         this.length =
             (Math.min(shapeView.getHeight(), shapeView.getWidth()) / 6) / 2;
-        this.gem = new RectangleShape[6][6];
+        this.gem = new GemShape[6][6];
         setupScreen();
     }
 
@@ -48,14 +50,13 @@ public class BattleScreen
             for (int j = 0; j < 8; j++)
 
             {
-                RectangleShape square =
-                    new RectangleShape(
+                GemShape square =
+                    new GemShape(
                         length * j,
                         length * i,
                         length * (j + 1),
-                        length * (i + 1));
-
-                square.setColor(Color.black);
+                        length * (i + 1),
+                        puzzle.getType(new Location(i, j)));
 
                 shapeView.add(square);
                 gem[i][j] = square;
@@ -77,7 +78,6 @@ public class BattleScreen
     {
 
     }
-
 
 
     // ----------------------------------------------------------
@@ -103,16 +103,24 @@ public class BattleScreen
      */
     public void ProcessTouch(float x, float y)
     {
-        RectangleShape tile =
-            this.getShapes().locatedAt(x, y).withClass(RectangleShape.class)
-                .front();
+        GemShape tile =
+            this.getShapes().locatedAt(x, y).withClass(GemShape.class).front();
 
         if (tile != null)
         {
             int yValue = getValue(x);
             int xValue = getValue(y);
-            Location location = new Location(xValue, yValue);
+            if (firstClick == null)
+            {
+                firstClick = new Location(xValue, yValue);
+            }
+            else
+            {
 
+                puzzle.switchGems(firstClick, new Location(xValue, yValue));
+                firstClick = null;
+
+            }
 
         }
 
@@ -127,11 +135,17 @@ public class BattleScreen
      */
     public void changeWasObserved(PuzzleGrid puzzle)
     {
-        // Run through puzzle and see if gems have changed update location of
-// new gems
-        // if gems removed have new ones move
-        // fall down change in x
+        for (int i = 0; i < puzzle.size(); i++)
+        {
+            for (int j = 0; j < puzzle.size(); j++)
+            {
+                gem[i][j].getImage();
+
+            }
+            // if gems removed have new ones move
+            // fall down change in x
+
+        }
 
     }
-
 }

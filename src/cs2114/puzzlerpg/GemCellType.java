@@ -10,5 +10,30 @@ package cs2114.puzzlerpg;
  */
 public enum GemCellType
 {
-    FIRE, WATER, EARTH, HEAL;
+    FIRE,
+    WATER,
+    EARTH,
+    HEAL;
+    private String imageName;
+
+    static
+    {
+        FIRE.imageName = "fire.png";
+        WATER.imageName = "water.png";
+        EARTH.imageName = "earth.png";
+        HEAL.imageName = "heal.png";
+
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Gets the image file for the Gem Type
+     *
+     * @return the image file name
+     */
+    String getImage()
+    {
+        return imageName;
+    }
 }
