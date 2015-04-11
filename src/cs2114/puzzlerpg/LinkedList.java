@@ -14,7 +14,6 @@ public class LinkedList<E>
 {
     private Node<E> head;
 
-
     /**
      * Construct a new empty list.
      */
@@ -25,12 +24,17 @@ public class LinkedList<E>
 
 
     /**
+<<<<<<< HEAD
      * Return the value at the given position. <<<<<<< HEAD
      *
      * @index The given position. =======
      * @param index
      *            The given position. >>>>>>> branch 'master' of
      *            https://github.com/kasey07/Puzzle-RPG.git
+=======
+     * Return the value at the given position.
+     * @param index The given position.
+>>>>>>> refs/remotes/origin/master
      * @return The value at that position.
      */
     public E get(int index)
@@ -46,7 +50,7 @@ public class LinkedList<E>
             currentNode = currentNode.getNext();
         }
         return currentNode.data();
-
+>>>>>>> refs/remotes/origin/master
     }
 
 
@@ -79,10 +83,16 @@ public class LinkedList<E>
      */
     public int size()
     {
+<<<<<<< HEAD
 
         int accum = 0;
         Node<E> currentNode = head;
         while (currentNode != null)
+=======
+        int accum = 0;
+        Node<E> currentNode = head;
+        while(currentNode != null)
+>>>>>>> refs/remotes/origin/master
         {
             currentNode = currentNode.getNext();
             accum++;
@@ -103,6 +113,7 @@ public class LinkedList<E>
 
 
     /**
+<<<<<<< HEAD
      * <<<<<<< HEAD Makes this the new element at the given index. The current
      * element at that index and all elements after it are moved to accommodate
      * the new value.
@@ -116,6 +127,13 @@ public class LinkedList<E>
      * @param index
      *            The index to insert the new value before. >>>>>>> branch
      *            'master' of https://github.com/kasey07/Puzzle-RPG.git
+=======
+     * Makes this the new element at the given index. The current
+     * element at that index and all elements after it are moved
+     * to accommodate the new value.
+     * @param newItem The new item.
+     * @param index The index to insert the new value before.
+>>>>>>> refs/remotes/origin/master
      */
     public void insert(E newItem, int index)
     {
@@ -124,12 +142,17 @@ public class LinkedList<E>
 
 
     /**
+<<<<<<< HEAD
      * Insert a new value to the front of the list. <<<<<<< HEAD
      *
      * @newItem The new item. =======
      * @param newItem
      *            The new item. >>>>>>> branch 'master' of
      *            https://github.com/kasey07/Puzzle-RPG.git
+=======
+     * Insert a new value to the front of the list.
+     * @param newItem The new item.
+>>>>>>> refs/remotes/origin/master
      */
     public void insert(E newItem)
     {
@@ -138,16 +161,22 @@ public class LinkedList<E>
 
 
     /**
+<<<<<<< HEAD
      * Delete the item at the given position. <<<<<<< HEAD
      *
      * @index The item to delete. =======
      * @param index
      *            The item to delete. >>>>>>> branch 'master' of
      *            https://github.com/kasey07/Puzzle-RPG.git
+=======
+     * Delete the item at the given position.
+     * @param index The item to delete.
+>>>>>>> refs/remotes/origin/master
      * @return The value that was deleted.
      */
     public E delete(int index)
     {
+<<<<<<< HEAD
 
         if (index == 0)
         {
@@ -164,6 +193,23 @@ public class LinkedList<E>
                 if (currentNode == null)
                 {
                     // TODO List too short, blow up.
+=======
+        if (index == 0)
+        {
+            Node<E> temp = head;
+            head = null;
+            return temp.data();
+        }
+        else
+        {
+            Node<E>lastNode = null;
+            Node<E>currentNode = head;
+            for (int i = 0; i < index; i++)
+            {
+                if (currentNode == null)
+                {
+                    //TODO List too short, blow up.
+>>>>>>> refs/remotes/origin/master
                 }
                 lastNode = currentNode;
                 currentNode = currentNode.getNext();
@@ -206,7 +252,7 @@ public class LinkedList<E>
 
         /**
          * Point the next node to the argument node.
-         * 
+         *
          * @param next
          *            The new next node.
          */
@@ -218,7 +264,7 @@ public class LinkedList<E>
 
         /**
          * Return the next node or null if there are no other nodes.
-         * 
+         *
          * @return next node or null
          */
         public Node<E> getNext()
@@ -229,7 +275,54 @@ public class LinkedList<E>
 
         /**
          * Get the datum in the node.
-         * 
+         *
+         * @return The datum.
+         */
+        public E data()
+        {
+            return value;
+        }
+
+    }
+
+    /**
+     * Linked list nodes.
+     */
+    private class Node<E>
+    {
+        private E value;
+        private Node<E> next;
+
+        /**
+         * Create a new node linked to null.
+         */
+        public Node(E value)
+        {
+            this.value = value;
+            this.next = null;
+        }
+
+        /**
+         * Point the next node to the argument node.
+         * @param next The new next node.
+         */
+        public void setNext(Node<E> next)
+        {
+            this.next = next;
+        }
+
+        /**
+         * Return the next node or null if there
+         * are no other nodes.
+         * @return next node or null
+         */
+        public Node<E> getNext()
+        {
+            return next;
+        }
+
+        /**
+         * Get the datum in the node.
          * @return The datum.
          */
         public E data()
