@@ -12,25 +12,41 @@ import java.util.Iterator;
  */
 public class LinkedList<E>
 {
+    private Node<E> head;
+
 
     /**
      * Construct a new empty list.
      */
     public LinkedList()
     {
-
+        head = null;
     }
 
 
     /**
-     * Return the value at the given position.
+     * Return the value at the given position. <<<<<<< HEAD
      *
-     * @index The given position.
+     * @index The given position. =======
+     * @param index
+     *            The given position. >>>>>>> branch 'master' of
+     *            https://github.com/kasey07/Puzzle-RPG.git
      * @return The value at that position.
      */
     public E get(int index)
     {
-        return null;
+
+        Node<E> currentNode = head;
+        for (int i = 0; i < index; i++)
+        {
+            if (head == null)
+            {
+                return null;
+            }
+            currentNode = currentNode.getNext();
+        }
+        return currentNode.data();
+
     }
 
 
@@ -63,7 +79,15 @@ public class LinkedList<E>
      */
     public int size()
     {
-        return 0;
+
+        int accum = 0;
+        Node<E> currentNode = head;
+        while (currentNode != null)
+        {
+            currentNode = currentNode.getNext();
+            accum++;
+        }
+        return accum;
     }
 
 
@@ -79,12 +103,19 @@ public class LinkedList<E>
 
 
     /**
-     * Makes this the new element at the given index. The current element at
-     * that index and all elements after it are moved to accommodate the new
-     * value.
+     * <<<<<<< HEAD Makes this the new element at the given index. The current
+     * element at that index and all elements after it are moved to accommodate
+     * the new value.
      *
      * @newItem The new item.
-     * @index The index to insert the new value before.
+     * @index The index to insert the new value before. ======= Makes this the
+     *        new element at the given index. The current element at that index
+     *        and all elements after it are moved to accommodate the new value.
+     * @param newItem
+     *            The new item.
+     * @param index
+     *            The index to insert the new value before. >>>>>>> branch
+     *            'master' of https://github.com/kasey07/Puzzle-RPG.git
      */
     public void insert(E newItem, int index)
     {
@@ -93,9 +124,12 @@ public class LinkedList<E>
 
 
     /**
-     * Insert a new value to the front of the list.
+     * Insert a new value to the front of the list. <<<<<<< HEAD
      *
-     * @newItem The new item.
+     * @newItem The new item. =======
+     * @param newItem
+     *            The new item. >>>>>>> branch 'master' of
+     *            https://github.com/kasey07/Puzzle-RPG.git
      */
     public void insert(E newItem)
     {
@@ -104,14 +138,39 @@ public class LinkedList<E>
 
 
     /**
-     * Delete the item at the given position.
+     * Delete the item at the given position. <<<<<<< HEAD
      *
-     * @index The item to delete.
+     * @index The item to delete. =======
+     * @param index
+     *            The item to delete. >>>>>>> branch 'master' of
+     *            https://github.com/kasey07/Puzzle-RPG.git
      * @return The value that was deleted.
      */
     public E delete(int index)
     {
-        return null;
+
+        if (index == 0)
+        {
+            Node<E> temp = head;
+            head = null;
+            return temp.data();
+        }
+        else
+        {
+            Node<E> lastNode = null;
+            Node<E> currentNode = head;
+            for (int i = 0; i < index; i++)
+            {
+                if (currentNode == null)
+                {
+                    // TODO List too short, blow up.
+                }
+                lastNode = currentNode;
+                currentNode = currentNode.getNext();
+            }
+            lastNode.setNext(currentNode.getNext());
+            return currentNode.data();
+        }
     }
 
 
@@ -123,5 +182,60 @@ public class LinkedList<E>
     public Iterator<E> iterator()
     {
         return null;
+    }
+
+
+    /**
+     * Linked list nodes.
+     */
+    private class Node<E>
+    {
+        private E       value;
+        private Node<E> next;
+
+
+        /**
+         * Create a new node linked to null.
+         */
+        public Node(E value)
+        {
+            this.value = value;
+            this.next = null;
+        }
+
+
+        /**
+         * Point the next node to the argument node.
+         * 
+         * @param next
+         *            The new next node.
+         */
+        public void setNext(Node<E> next)
+        {
+            this.next = next;
+        }
+
+
+        /**
+         * Return the next node or null if there are no other nodes.
+         * 
+         * @return next node or null
+         */
+        public Node<E> getNext()
+        {
+            return next;
+        }
+
+
+        /**
+         * Get the datum in the node.
+         * 
+         * @return The datum.
+         */
+        public E data()
+        {
+            return value;
+        }
+
     }
 }
