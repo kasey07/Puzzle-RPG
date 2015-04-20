@@ -7,7 +7,7 @@ import java.util.Iterator;
  *
  * @param <E>
  *            The type of each member.
- * @author andrew
+ * @author Andrew Dudash
  * @version Apr 8, 2015
  */
 public class LinkedList<E>
@@ -25,16 +25,9 @@ public class LinkedList<E>
 
 
     /**
-     * <<<<<<< HEAD Return the value at the given position. <<<<<<< HEAD
+     * Return the value at the given position.
      *
-     * @index The given position. =======
-     * @param index
-     *            The given position. >>>>>>> branch 'master' of
-     *            https://github.com/kasey07/Puzzle-RPG.git ======= Return the
-     *            value at the given position.
-     * @param index
-     *            The given position. >>>>>>> refs/remotes/origin/master
-     * @return The value at that position.
+     * @index The given position. @return The value at that position.
      */
     public E get(int index)
     {
@@ -107,27 +100,12 @@ public class LinkedList<E>
 
 
     /**
-     * <<<<<<< HEAD <<<<<<< HEAD Makes this the new element at the given index.
-     * The current element at that index and all elements after it are moved to
-     * accommodate the new value.
+     * Makes this the new element at the given index. The current element at
+     * that index and all elements after it are moved to accommodate the new
+     * value.
      *
      * @newItem The new item.
-     * @index The index to insert the new value before. ======= Makes this the
-     *        new element at the given index. The current element at that index
-     *        and all elements after it are moved to accommodate the new value.
-     * @param newItem
-     *            The new item.
-     * @param index
-     *            The index to insert the new value before. >>>>>>> branch
-     *            'master' of https://github.com/kasey07/Puzzle-RPG.git =======
-     *            Makes this the new element at the given index. The current
-     *            element at that index and all elements after it are moved to
-     *            accommodate the new value.
-     * @param newItem
-     *            The new item.
-     * @param index
-     *            The index to insert the new value before. >>>>>>>
-     *            refs/remotes/origin/master
+     * @index The index to insert the new value before.
      */
     public void insert(E newItem, int index)
     {
@@ -136,15 +114,10 @@ public class LinkedList<E>
 
 
     /**
-     * <<<<<<< HEAD Insert a new value to the front of the list. <<<<<<< HEAD
+     * Insert a new value to the front of the list.
      *
-     * @newItem The new item. =======
      * @param newItem
-     *            The new item. >>>>>>> branch 'master' of
-     *            https://github.com/kasey07/Puzzle-RPG.git ======= Insert a new
-     *            value to the front of the list.
-     * @param newItem
-     *            The new item. >>>>>>> refs/remotes/origin/master
+     *            The new item.
      */
     public void insert(E newItem)
     {
@@ -153,15 +126,10 @@ public class LinkedList<E>
 
 
     /**
-     * <<<<<<< HEAD Delete the item at the given position. <<<<<<< HEAD
+     * Delete the item at the given position.
      *
-     * @index The item to delete. =======
      * @param index
-     *            The item to delete. >>>>>>> branch 'master' of
-     *            https://github.com/kasey07/Puzzle-RPG.git ======= Delete the
-     *            item at the given position.
-     * @param index
-     *            The item to delete. >>>>>>> refs/remotes/origin/master
+     *            The item to delete.
      * @return The value that was deleted.
      */
     public E delete(int index)
@@ -256,7 +224,5 @@ public class LinkedList<E>
         }
 
     }
-
-
 
 }
